@@ -32,5 +32,16 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    // Aquí añadiremos en el futuro el manejo de conflictos de negocio (409)
+    // Manejo de Reglas de Negocio (Errores lanzados manualmente)
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ErrorResponse> handleBusinessException(BusinessException ex, HttpServletRequest request) {
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(ex.getStatus().value())
+                .message(ex.getMessage()) // El mensaje que pongamos en el Service
+                .path(request.getRequestURI())
+                .build();
+
+        return new ResponseEntity<>(error, ex.getStatus());
+    }
 }
