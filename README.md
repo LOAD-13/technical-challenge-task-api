@@ -15,7 +15,7 @@ Esta API implementa un CRUD completo de tareas con las siguientes característic
 ## Repositorio y Pull Request
 
 * **Repositorio:** https://github.com/LOAD-13/technical-challenge-task-api
-* **Pull Request:** [Enlace al PR desde feature/tasks-crud hacia main]
+* **Pull Request:** https://github.com/LOAD-13/technical-challenge-task-api/pull/1
 
 ## Requisitos
 
