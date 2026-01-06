@@ -1,0 +1,37 @@
+### 1. Crear una Tarea CORRECTA (Debe dar 201 Created)
+POST http://localhost:8080/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Aprender Spring Boot",
+  "description": "Entender arquitectura en capas",
+  "priority": "HIGH",
+  "status": "TODO"
+}
+
+### 2. Listar todas las tareas (Debe devolver un Array con la tarea creada)
+GET http://localhost:8080/api/tasks
+
+### 3. PROBAR TU NUEVO ERROR (Commit 4): Crear tarea SIN título
+# Esto debe devolver tu JSON bonito: { "status": 400, "message": "El título es obligatorio", ... }
+POST http://localhost:8080/api/tasks
+Content-Type: application/json
+
+{
+  "description": "Soy una tarea ilegal",
+  "priority": "LOW"
+}
+
+### 4. Actualizar una tarea (Cambiar prioridad)
+PUT http://localhost:8080/api/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Aprender Spring Boot Avanzado",
+  "description": "Ya pasamos el nivel básico",
+  "priority": "MEDIUM",
+  "status": "IN_PROGRESS"
+}
+
+### 5. Borrar la tarea
+DELETE http://localhost:8080/api/tasks/1
